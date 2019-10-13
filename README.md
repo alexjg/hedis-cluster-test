@@ -4,8 +4,7 @@ This is a project for testing the clustering implementation of the Hedis library
 
 You'll also need to add your source checkout of the hedis `cluster` branch to `stack.yaml`. That is:
 
-- Clone `https://bitbucket.org/juspay/hedis/pull-requests/1/wip-first-working-implementation-of-move/diff`
-- Checkout the `cluster` branch of `hedis`
+- Clone `https://bitbucket.org/juspay/hedis/src/cluster/`
 - Open `stack.yaml` in this project and replace `<path to hedis repo>` with the path to the checked out source 
 
 Currently the `main` function of this project does this:
