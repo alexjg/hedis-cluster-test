@@ -55,8 +55,7 @@ migrateHashSlot clusterConn slot = migrateHashSlotWithInterstitialAction cluster
 --   node2| 100001 - 16384| 
 --
 --
---   This function will issue the following commands 
---
+--   Calling this function with hashslot `1` will issue the following commands 
 --
 --   node1 > CLUSTER SETSLOT 1 MIGRATING node2
 --   node2 > CLUSTER SETSLOT 1 IMPORTING node1
@@ -65,7 +64,8 @@ migrateHashSlot clusterConn slot = migrateHashSlotWithInterstitialAction cluster
 --   node1 > CLUSTER SETSLOT 1 NODE node2
 --   node2 > CLUSTER SETSLOT 2 NODE node2
 --   return the result of the interstitial action
-migrateHashSlotWithInterstitialAction :: Connection
+migrateHashSlotWithInterstitialAction 
+    :: Connection -- ^ A non clustered connection to one of the nodes in the cluster
     -> HashSlot -- ^ The hashslot to migrate
     -> HedisTest a  -- ^ An action to run after migrating the key but before marking the migration complete
     -> HedisTest a
